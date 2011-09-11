@@ -1,7 +1,7 @@
 <ul data-role="listview" data-inset="true">
   <li data-role="list-divider">By due date</li>
-  <li><a href="">
-      <h1>Overdue<span class="ui-li-count"></span></h1>
+  <li><a href="<%= url_for :action => 'issues_list', :list_mode => 'overdue' %>">
+    <h1>Overdue<span class="ui-li-count"><%=h @overdue_issues.count %></span></h1>
   </a></li>
   <li><a href="">
       <h1>Due today<span class="ui-li-count"></span></h1>
