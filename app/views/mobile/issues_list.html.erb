@@ -1,0 +1,5 @@
+<ul data-role="listview" data-inset="false">
+  <% @issues.each do |issue| %>
+    <li><%=h issue.subject %></li>
+  <% end %>
+</ul>
