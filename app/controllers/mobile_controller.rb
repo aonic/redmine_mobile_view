@@ -10,8 +10,10 @@ class MobileController < ApplicationController
   def issues_list
     case params[:list_mode]
     when 'overdue'
+      @title = 'Overdue issues'
       @issues = get_overdue_issues
     else
+      @title = 'My issues'
       @issues = get_my_issues
     end
   end
