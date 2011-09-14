@@ -1,7 +1,7 @@
 <ul data-role="listview" data-inset="false">
   <% @issues.each do |issue| %>
     <li>
-    <p>[<%=h "#{issue.project.name} - ##{issue.id}" %>]</p>
+    <p>[<%=h "#{issue.project.name} - #{issue.tracker.name} ##{issue.id}" %>] <%=h "#{issue.status.name}" %></p>
     <h3><%=h issue.subject %></h3>
     </li>
   <% end %>
