@@ -10,6 +10,9 @@
 <body>
 <div data-role="page">
   <div data-role="header">
+    <% unless url_for(nil) == url_for(:action => 'index') %>
+      <%= link_to "Back", {:action => 'index'}, {"data-rel" => "back"} %>
+    <% end %>
     <h1><%= @title.to_s.empty? ? "Redmine" : h(@title) %></h1>
   </div>
 
