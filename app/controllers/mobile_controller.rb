@@ -5,6 +5,7 @@ class MobileController < ApplicationController
 
   def index
     @overdue_issues = get_overdue_issues
+    @due_today_issues = get_due_today_issues
   end
 
   def issues_list
@@ -40,4 +41,14 @@ class MobileController < ApplicationController
       :order => "due_date")
   end
 
+  def get_due_today_issues
+    Issue.visible.open.find(:all,
+      :conditions => [
+        "assigned_to_id = ? and due_date = ?",
+        User.current.id,
+        Date.today,
+      ],
+      :include => [:status, :project, :tracker, :priority],
+      :order => "due_date")
+  end
 end
