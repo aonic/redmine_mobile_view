@@ -13,6 +13,9 @@ class MobileController < ApplicationController
     when 'overdue'
       @title = 'Overdue'
       @issues = get_overdue_issues
+    when 'due_today'
+      @title = 'Due today'
+      @issues = get_due_today_issues
     else
       @title = 'My issues'
       @issues = get_my_issues

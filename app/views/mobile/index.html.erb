@@ -3,7 +3,7 @@
   <li><a href="<%= url_for :action => 'issues_list', :list_mode => 'overdue' %>">
     <h1>Overdue<span class="ui-li-count"><%=h @overdue_issues.count %></span></h1>
   </a></li>
-  <li><a href="">
+  <li><a href="<%= url_for :action => 'issues_list', :list_mode => 'due_today' %>">
       <h1>Due today<span class="ui-li-count"><%=h @due_today_issues.count %></span></h1>
   </a></li>
   <li><a href="">
