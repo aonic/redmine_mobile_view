@@ -32,7 +32,7 @@ class MobileController < ApplicationController
   def get_overdue_issues
     Issue.visible.open.find(:all,
       :conditions => [
-        "(assigned_to_id = ? or assigned_to_id is null) and due_date < ?",
+        "assigned_to_id = ? and due_date < ?",
         User.current.id,
         Date.today,
       ],
