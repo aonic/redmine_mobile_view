@@ -7,6 +7,7 @@ class MobileController < ApplicationController
     @overdue_issues = get_overdue_issues
     @due_today_issues = get_due_today_issues
     @near_due_issues = get_near_due_issues
+    @doing_issues = get_doing_issues
   end
 
   def issues_list
@@ -70,4 +71,13 @@ class MobileController < ApplicationController
       :include => [:status, :project, :tracker, :priority],
       :order => "due_date")
   end
+
+  def get_doing_issues
+    default_issue_status = IssueStatus.find_by_is_default(true)
+    Issue.visible.open.find(:all,
+      :conditions => ["assigned_to_id = ? and #{IssueStatus.table_name}.id <> ?", User.current.id, default_issue_status],
+      :include => [:status, :project, :tracker, :priority],
+      :order => "#{Issue.table_name}.updated_on desc")
+  end
+
 end
