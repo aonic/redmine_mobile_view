@@ -25,6 +25,9 @@ class MobileController < ApplicationController
     when 'doing'
       @title = 'Doing'
       @issues = get_doing_issues
+    when 'new'
+      @title = 'New'
+      @issues = get_new_issues
     else
       @title = 'My issues'
       @issues = get_my_issues
