@@ -10,7 +10,7 @@
       <h1>Due in 7 days<span class="ui-li-count"><%=h @near_due_issues.count %></span></h1>
   </a></li>
   <li data-role="list-divider">By status</li>
-  <li><a href="">
+  <li><a href="<%= url_for :action => 'issues_list', :list_mode => 'doing' %>">
     <h1>Doing<span class="ui-li-count"><%=h @doing_issues.count %></span></h1>
   </a></li>
   <li><a href="">

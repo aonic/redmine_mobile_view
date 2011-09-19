@@ -21,6 +21,9 @@ class MobileController < ApplicationController
     when 'near_due'
       @title = 'Due in 7 days'
       @issues = get_near_due_issues
+    when 'doing'
+      @title = 'Doing'
+      @issues = get_doing_issues
     else
       @title = 'My issues'
       @issues = get_my_issues
