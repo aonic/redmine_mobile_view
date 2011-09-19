@@ -8,6 +8,7 @@ class MobileController < ApplicationController
     @due_today_issues = get_due_today_issues
     @near_due_issues = get_near_due_issues
     @doing_issues = get_doing_issues
+    @new_issues = get_new_issues
   end
 
   def issues_list
@@ -79,6 +80,14 @@ class MobileController < ApplicationController
     default_issue_status = IssueStatus.find_by_is_default(true)
     Issue.visible.open.find(:all,
       :conditions => ["assigned_to_id = ? and #{IssueStatus.table_name}.id <> ?", User.current.id, default_issue_status],
+      :include => [:status, :project, :tracker, :priority],
+      :order => "#{Issue.table_name}.updated_on desc")
+  end
+
+  def get_new_issues
+    default_issue_status = IssueStatus.find_by_is_default(true)
+    Issue.visible.open.find(:all,
+      :conditions => ["assigned_to_id = ? and #{IssueStatus.table_name}.id = ?", User.current.id, default_issue_status],
       :include => [:status, :project, :tracker, :priority],
       :order => "#{Issue.table_name}.updated_on desc")
   end
