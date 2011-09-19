@@ -1,19 +1,19 @@
 <ul data-role="listview" data-inset="true">
   <li data-role="list-divider">By due date</li>
-  <li><a href="<%= url_for :action => 'issues_list', :list_mode => 'overdue' %>">
-    <h1>Overdue<span class="ui-li-count"><%=h @overdue_issues.count %></span></h1>
-  </a></li>
-  <li><a href="<%= url_for :action => 'issues_list', :list_mode => 'due_today' %>">
-      <h1>Due today<span class="ui-li-count"><%=h @due_today_issues.count %></span></h1>
-  </a></li>
-  <li><a href="<%= url_for :action => 'issues_list', :list_mode => 'near_due' %>">
-      <h1>Due in 7 days<span class="ui-li-count"><%=h @near_due_issues.count %></span></h1>
-  </a></li>
+  <li>
+    <%= link_to_if @overdue_issues.count > 0,  "<h1>Overdue<span class=\"ui-li-count\">#{h @overdue_issues.count}</span></h1>", :action => 'issues_list', :list_mode => 'overdue' %>
+  </li>
+  <li>
+    <%= link_to_if @due_today_issues.count > 0,  "<h1>Due today<span class=\"ui-li-count\">#{h @due_today_issues.count}</span></h1>", :action => 'issues_list', :list_mode => 'due_today' %>
+  </li>
+  <li>
+    <%= link_to_if @near_due_issues.count > 0,  "<h1>Due in 7 days<span class=\"ui-li-count\">#{h @near_due_issues.count}</span></h1>", :action => 'issues_list', :list_mode => 'near_due' %>
+  </li>
   <li data-role="list-divider">By status</li>
-  <li><a href="<%= url_for :action => 'issues_list', :list_mode => 'doing' %>">
-    <h1>Doing<span class="ui-li-count"><%=h @doing_issues.count %></span></h1>
-  </a></li>
-  <li><a href="<%= url_for :action => 'issues_list', :list_mode => 'new' %>">
-    <h1>New<span class="ui-li-count"><%=h @new_issues.count %></span></h1>
-  </a></li>
+  <li>
+    <%= link_to_if @doing_issues.count > 0,  "<h1>Doing<span class=\"ui-li-count\">#{h @doing_issues.count}</span></h1>", :action => 'issues_list', :list_mode => 'doing' %>
+  </li>
+  <li>
+    <%= link_to_if @new_issues.count > 0,  "<h1>New<span class=\"ui-li-count\">#{h @new_issues.count}</span></h1>", :action => 'issues_list', :list_mode => 'new' %>
+  </li>
 </ul>
