@@ -34,6 +34,16 @@ class MobileController < ApplicationController
     end
   end
 
+  def issue
+    issue_id = params[:issue_id]
+    begin
+      @issue = Issue.find(issue_id)
+      @title = "#{@issue.tracker.name}  ##{@issue.id} (#{@issue.status})"
+    rescue RecordNotFound  
+      redirect_to :action => index && return
+    end
+  end
+
   private
   def get_my_issues
     Issue.visible.open.find(:all,

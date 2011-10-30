@@ -1,8 +1,10 @@
 <ul data-role="listview" data-inset="false">
   <% @issues.each do |issue| %>
     <li>
-    <p>[<%=h "#{issue.project.name} - #{issue.tracker.name} ##{issue.id}" %>] <%=h "#{issue.status.name}" %></p>
-    <h3><%=h issue.subject %></h3>
+      <a href="<%= url_for :action => 'issue', :issue_id => issue.id %>">
+        <p>[<%=h "#{issue.project.name} - #{issue.tracker.name} ##{issue.id}" %>] <%=h "#{issue.status.name}" %></p>
+        <h3><%=h issue.subject %></h3>
+      </a>
     </li>
   <% end %>
 </ul>

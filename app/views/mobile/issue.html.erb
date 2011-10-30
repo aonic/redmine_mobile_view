@@ -1,0 +1,19 @@
+<ul data-role="listview" data-inset="true">
+  <li data-role="list-divider"><%=h @issue.subject %></li>
+  <li><%=h @issue.description %></li>
+  <li>
+    <table style="width: 100%;">
+      <tr>
+        <th>author:</th> <td><%=h @issue.author %></td>
+      </tr>
+      <tr>
+        <th>assigned to:</th> <td><%=h @issue.assigned_to %></td>
+      </tr>
+      <tr>
+        <th>due date:</th> <td><%=h @issue.due_date %></td>
+      </tr>
+    </table>
+  </li>
+</ul>
+
+
