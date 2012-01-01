@@ -1,19 +1,15 @@
-<ul data-role="listview" data-inset="true">
-  <li data-role="list-divider"><%=h @issue.subject %></li>
-  <li><%=h @issue.description %></li>
-  <li>
-    <table style="width: 100%;">
-      <tr>
-        <th>author:</th> <td><%=h @issue.author %></td>
-      </tr>
-      <tr>
-        <th>assigned to:</th> <td><%=h @issue.assigned_to %></td>
-      </tr>
-      <tr>
-        <th>due date:</th> <td><%=h @issue.due_date %></td>
-      </tr>
-    </table>
-  </li>
-</ul>
-
-
+<div class="ui-bar ui-bar-b"><%=h @issue.subject %></div>
+<div class="ui-bar ui-bar-c" style="font-weight: normal"><%=h @issue.description %></div>
+<div class="ui-bar ui-bar-c">
+  <table style="font-weight: normal">
+    <tr>
+      <th align="left">assigned to:</th> <td><%= @issue.assigned_to %></td>
+    </tr>
+    <tr>
+      <th align="left">start date:</th> <td><%= @issue.start_date %></td>
+    </tr>
+    <tr>
+      <th align="left">due date:</th> <td><%= @issue.due_date %></td>
+    </tr>
+  </table>
+</div>
