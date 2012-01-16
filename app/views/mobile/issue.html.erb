@@ -1,5 +1,5 @@
 <div class="ui-bar ui-bar-b"><%=h @issue.subject %></div>
-<div class="ui-bar ui-bar-c" style="font-weight: normal"><%=h @issue.description %></div>
+<div class="ui-bar ui-bar-c" style="font-weight: normal"><%=h simple_format(@issue.description) %></div>
 <div class="ui-bar ui-bar-c">
   <table style="font-weight: normal">
     <tr>
